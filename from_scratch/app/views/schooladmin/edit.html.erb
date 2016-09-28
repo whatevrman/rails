@@ -1,0 +1,18 @@
+
+
+<table style="float: left;">
+<tr><th>Edit school admin</th></tr>
+<tr>
+
+<td>
+  <div style="height: 120px;">
+    <%= form_for(@user) do |f| %>
+	  <%= render 'shared/error_messages' %>
+<%= f.label :username %>
+	<%= f.text_field :username, class: 'form-control' %>
+	<%= f.hidden_field :role, :value => 'schooladmin' %>
+	<%= f.label :password %>
+	<%= f.password_field :password, class: 'form-control' %>
+      <%= f.submit "Create school admin account" %>
+    <% end %></td>
+  </div></tr></table>

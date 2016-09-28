@@ -1,0 +1,41 @@
+<table style="float: left; top-margin: 10px">
+<tr>
+<th>Menu</th></tr>
+<tr><td>
+<div style="float: center; width: 75px;">
+
+<div style="float: left;">
+<div style="width: 125px">
+<%= link_to "Add school admin", {:action => "create_user", controller => "siteadmin" }%></div></div></br>
+<div style="width: 125px">
+<%= link_to "Add school", {:action => "create_school", controller => "siteadmin" }%></div>
+<div style="width: 100px">
+<%= link_to "Show schools", {:action => "show_schools", controller => "siteadmin"} %></div>
+<div style="width: 100px">
+<%= link_to "Disable schools", {:action => "disable_schools", controller => "siteadmin"} %></div>
+<div style="width: 100px">
+<%= link_to "List Disabled", {:action => "wait_schools", controller => "siteadmin"} %></div>
+<div style="width: 100px">
+<%= link_to "Show individuals", {:action => "show_people", controller => "siteadmin"} %></div>
+<div style="width: 100px">
+<%= link_to "Reset Password", {:action => "reset", controller => "users"} %></div>
+
+
+
+
+<%= link_to "Log out", logout_path, method: :delete %></div>
+</td></tr></table>
+
+<table style="float: left; margin-left: -23px;">
+<tr>
+<th>All Schools</th></tr>
+<tr><td>
+<div style="min-height: 120px;">
+<div style="float: center; width: 75px;">
+
+  <% @schools.each do |s| %>
+      <%= link_to s.name, s %>
+  <% end %>
+</br>
+</div></div>
+</td></tr></table>

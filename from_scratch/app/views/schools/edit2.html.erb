@@ -1,0 +1,15 @@
+
+
+<table style="float: left; margin-left: -23px;">
+<tr><th>Add school</th></tr>
+<tr>
+
+<td>
+  <div>
+    <%= form_for(@school) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.submit "Save school" %>
+    <% end %></td>
+  </div></tr></table>

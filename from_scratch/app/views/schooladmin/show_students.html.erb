@@ -1,0 +1,34 @@
+<table style="float: left; top-margin: 10px">
+	<tr>
+		<th>Menu</th>
+	</tr>
+	<tr>
+		<td>
+			<div style="float: left; width: 175px">
+				<%= link_to "Add Instructor", {:action => "create_user", controller => "schooladmin" }%></br>
+				<%= link_to "List Instructors", {:action => "show_instructors", controller => "schooladmin"} %></br>
+				<%= link_to "Disable Instructors", {:action => "disable_instructors", controller => "schooladmin"} %></br>
+				<%= link_to "List Disabled Instructors", {:action => "disabled_insts", controller => "schooladmin"} %></br>
+				<%= link_to "List Students", {:action => "show_students", controller => "schooladmin"} %></br>
+				<%= link_to "List Disabled Students", {:action => "disabled_studs", controller => "schooladmin"} %></br>
+				<%= link_to "Approve Students", {:action => "wait_students", controller => "schooladmin"} %></br>
+				<%= link_to "Log out", logout_path, method: :delete %></div></br></br>
+				<%= link_to "Reset Password", {:action => "reset", controller => "users"} %>
+			</div>
+		</td>
+	</tr>
+</table>
+
+<table style="float: left; margin-left: -23px;">
+	<tr>
+		<th>All Active Students</th></tr>
+	<tr>
+		<td>
+			<div style="min-height: 135px;">
+				<% @students.each do |s| %>
+					<%= link_to s.username, s %></br>
+				<% end %>
+			</div>
+		</td>
+	</tr>
+</table>

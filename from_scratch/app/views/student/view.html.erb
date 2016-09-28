@@ -1,0 +1,69 @@
+
+<table style="float: left;">
+	<tr><th>View Student</th>
+	</tr>
+	<tr>
+		<td>
+			<div>
+				Username:
+				<%= @user.username %></br>
+				Name:
+				<%= @user.name %></br>
+				Phone:
+				<%= @user.phone %></br>
+				Email:
+				<%= @user.email %></br>
+				Emergency Person:
+				<%= @user.eperson %></br>
+				Emergency Phone:
+				<%= @user.ephone %>
+			</div></br>
+			<div>
+				Address:
+				<%= @user.line1 %></br>
+				City:
+				<%= @user.city %></br>
+				State:
+				<%= @user.state %></br>
+				Zipcode:
+				<%= @user.zip %>
+			</div></br>
+			<div>	
+				Medical Cert #:
+				<%= @user.medcert%></br>
+				Medical Cert Date:
+				<%= @user.meddate%></br>
+				<b>Medical Cert Class:</b></br>
+				1:
+				<%= @user.med1%></br>
+				2:
+				<%= @user.med2%></br>
+				3:
+				<%= @user.med3%></br>
+				Start Date:
+				<%= @user.startdate %>
+			</div></br>
+			<div>	
+				<b>Helicopter for Certification:</b></br>
+				R44:
+				<%= @user.r44%></br>
+				R22:
+				<%= @user.r22%></br>
+				Enstrom:
+				<%= @user.enstrom%></br>
+				
+				<b>Desired Certification:</b></br>
+				<%= @user.desirecert %>
+			</div></br>
+			<div>	
+				If already a pilot, Certificate Number:</br>
+				<%= @user.cert_num %>
+			</div></br>
+			<div>
+				<% if current_user.role == 'instructor' %>
+					<%= link_to 'Edit', '/student/'+@user.id.to_s+'/edit' %>
+				<% end %>
+				<%= link_to 'Back', '/' %>
+			</div>
+	</td>
+</table>
