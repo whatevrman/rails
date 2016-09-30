@@ -24,7 +24,6 @@
       <thead>
       <tr>
         <th>Comic</th>
-        <th>&nbsp;</th>
       </tr>
       </thead>
       <tbody>
@@ -32,14 +31,10 @@
         <td colspan="4">No comics in the results.</td>
       </tr>
       <tr ng-repeat="comic in comics">
-        <td><img src="{{comic.image_link}}">
+        <td class="text-center"><img ng-src="{{comic.image_link}}">
           </br>{{comic.title}}</td>
-        <td><a class="btn btn-danger" ng-click="deleteComic($index)">Remove</a></td>
       </tr>
       </tbody>
     </table>
   </div>
 </div>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/hmac-md5.js"></script>

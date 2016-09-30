@@ -21,12 +21,4 @@ ActiveRecord::Schema.define(version: 201609291701529) do
     t.string   "author"
   end
 
-  create_table "visitors", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "reason"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end

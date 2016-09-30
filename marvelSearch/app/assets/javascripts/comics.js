@@ -25,28 +25,8 @@ var hash = CryptoJS.MD5(ts+privateAPIId+publicAPIId);
 
 var comicBooks = angular.module('ComicBooks', ['ngResource']);
 
-comicBooks.factory("Comic", function($resource){
-    return $resource("comics/:id", {id: '@id'},{
-        index: {method: 'GET', isArray: true, responseType: 'json'},
-        update: {method: 'PUT', responseType: 'json'}
-    });
-});
-
-comicBooks.controller("comicsController", function($scope, $http, Comic){
-    $scope.comics = Comic.index();
-
-    $scope.addComic = function(){
-        var comic = Comic.save($scope.newComic);
-
-        $scope.comics.push(comic);
-        $scope.newComic = {};
-    };
-
-    $scope.deleteComic = function(index){
-        var comic = $scope.comics[index];
-        Comic.delete(comic);
-        $scope.comics.splice (index, 1);
-    };
+comicBooks.controller("comicsController", function($scope, $http){
+    $scope.comics = [];
 
     $scope.emptyComics = function(){
         $scope.comics.splice(0);
@@ -59,20 +39,21 @@ comicBooks.controller("comicsController", function($scope, $http, Comic){
             method: 'GET',
             url: apiTitleSearchUrl
         }).then(function successCallback(response){
-            $scope.addComicResults(response.data.data.results, $scope.comics, Comic);
+            $scope.addComicResults(response.data.data.results, $scope.comics);
         },function errorCallback(response){
             console.log(response);
             });
     };
     $scope.addComicResults = function(data){
-        console.log(data);
         for(var i =  0, len = data.length; i < len; i++){
             var item = data[i];
             var comicLink = item.thumbnail.path + '.' + item.thumbnail.extension;
-            var comic = Comic.save($scope.newComic);
-            comic.title = item.title;
-            comic.image_link = comicLink;
-            $scope.comics.push(comic);
+            var comic = {
+                title: item.title,
+                image_link: comicLink
+            };
+            $scope.comics.push(comic)
+
         }
     }
 });
