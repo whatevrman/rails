@@ -1,2 +1,0 @@
-class NopageController < ApplicationController
-end
