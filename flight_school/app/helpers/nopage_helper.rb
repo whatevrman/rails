@@ -1,0 +1,2 @@
+module NopageHelper
+end

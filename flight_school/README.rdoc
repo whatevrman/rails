@@ -1,0 +1,9 @@
+== README
+
+Usernames for accessing each landing page:
+siteadmin
+schooladmin
+instructor2
+student4
+
+All passwords are very complex: password

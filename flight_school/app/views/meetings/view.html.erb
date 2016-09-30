@@ -1,0 +1,17 @@
+
+<table style="float: left;">
+	<tr><th>View Meeting</th>
+	</tr>
+	<tr>
+		<td>
+				<%= form_for(@meeting) do |f| %>
+					Student:
+					<%= @student.name %></br>
+						Date
+						<%= f.date_field :date %>
+						Time
+						<%= f.time_field :time %>
+			Remarks
+			<%= f.text_area :remarks, :rows => 5 %>
+		<% end %>
+</table>

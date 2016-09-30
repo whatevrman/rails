@@ -1,0 +1,161 @@
+<table style="float: left; top-margin: 10px">
+	<tr>
+		<th>Menu</th>
+	</tr>
+	<tr>
+		<td>
+			<div style="float: left; width: 175px">
+			</div>
+		</td>
+	</tr>
+</table>
+<table style="float: left; margin-left: -23px;">
+	<tr><th>Edit Student</th>
+	</tr>
+	<tr>
+		<td>
+			<div style="min-height: 135px;"">
+				<%= form_for(@user) do |f| %>
+				
+				<%= f.label :username %>
+				<%= f.text_field :username %>
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+				<%= f.hidden_field :role, :value => 'instructor' %>
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</div>
+		</td>
+	</tr>
+</table>
+				  
+<table style="position: absolute; margin-top: 230px; min-width: 497px;">
+	<td>
+		<div>
+			<div style="width: 200px; float: left;">
+				<%= f.label :phone %>
+				<%= f.text_field :phone %>
+				<%= f.label :email %>
+				<%= f.text_field :email %>
+				Emergency Person
+				<%= f.text_field :eperson %>
+				Emergency Phone
+				<%= f.text_field :ephone %>
+			</div>
+			<div style="width: 200px; float: left; margin-left: 40px">
+				<%= f.label :line1 %>
+				<%= f.text_field :line1 %>
+				<%= f.label :city %>
+				<%= f.text_field :city %>
+				<%= f.label :state %>
+				<%= f.text_field :state %>
+				<%= f.label :zip %>
+				<%= f.text_field :zip %>
+			</div>
+		</div>		
+		<div style="width: 120px; float: left;">
+			<%= f.label "Medical Cert #" %></br>
+			<div style="width: 80px; float: left;">
+				<%= f.text_field :medcert, class: 'form-control' %>
+			</div>
+			<%= f.label "Medical Cert Date" %></br>
+			<div style="width: 80px; float: left;">
+				<%= f.date_field :meddate, class: 'form-control' %>
+			</div>
+		</div>
+		<div style="width: 160px; float: left;">
+			<div style="width: 120px; float: left;">
+				Medical Cert Class:</br>
+				<div style="width: 40px; float: left;">
+					1
+					<div style="float: left; margin-right: 10px">
+						<%= f.check_box :med1%>
+					</div>
+				</div>
+				<div style="width: 40px; float: left;">
+					2
+					<div style="float: left; margin-right: 10px">
+						<%= f.check_box :med2%>
+					</div>
+				</div>
+				<div style="width: 40px; float: left;">
+					3
+					<div style="float: left; margin-right: 10px">
+						<%= f.check_box :med3%>
+					</div>
+				</div>
+				<%= f.label "Start Date" %></br>
+				<div style="width: 80px; float: left;">
+					<%= f.date_field :startdate, class: 'form-control' %>
+				</div>
+			</div>
+		</div>
+		<div style="width: 150px; float: right;">
+			<b>Helicopter for Certification</b></br>
+			<div style="width: 100px; float: left;">
+				R44
+				<div style="float: right">
+					<%= f.check_box :r44%>
+				</div>
+			</div>							
+			<div style="width: 100px; float: left;">
+				R22
+				<div style="float: right">
+					<%= f.check_box :r22%>
+				</div>
+			</div>							
+			<div style="width: 100px; float: left;">
+				Enstrom
+				<div style="float: right">
+					<%= f.check_box :enstrom%>
+				</div>
+			</div>
+		</div>	
+		<div style="width: 350px; float: left;">
+			<b>Desired Certification</b></br>
+			<div style="width: 50px; float: left;">
+				<%= f.label :desirecert, 'Private', :value => 'Private' %>
+				<div style="float: left">
+					<%= f.radio_button :desirecert, 'Private' %>
+				</div>
+			</div>
+			<div style="width: 80px; float: left;">
+				<%= f.label :desirecert, 'Commercial', :value => 'Commercial' %>
+				<div style="float: left">
+					<%= f.radio_button :desirecert, 'Commercial' %>
+				</div>
+			</div>
+			<div style="width: 80px; float: left;">
+				<%= f.label :desirecert, 'Instruments', :value => 'Instruments' %>
+				<div style="float: left">
+					<%= f.radio_button :desirecert, 'Instruments' %>
+				</div>
+			</div>
+			<div style="width: 30px; float: left;">
+				<%= f.label :desirecert, 'CFI', :value => 'CFI' %>
+				<div style="float: left">
+					<%= f.radio_button :desirecert, 'CFI' %>
+				</div>
+			</div>
+		</div>
+		<div style="width: 200px; float: left;">
+			If already a pilot, Certificate Number
+			</div>
+			<div style="width: 80px; float: left;">
+				<%= f.text_field :cert_num %>
+			</div>
+			<%= f.hidden_field :role, :value => 'student' %>
+			<%= f.hidden_field :approval, :value => f %>									
+			<%= f.hidden_field :schoolid, :value => current_user.schoolid %>
+			<%= f.hidden_field :inst_id, :value => current_user.id %>				
+			<div style="width: 400px; float: left;">
+									<%= f.submit "Save" %></div>
+								<div style="width: 100px; float: left; margin-left: 10px;">
+									<%= link_to 'Cancel', '/student/'+@user.id.to_s+'/view' %>
+								</div>
+				<% end %>
+		</div>
+	</td>
+</table>
+  
+  

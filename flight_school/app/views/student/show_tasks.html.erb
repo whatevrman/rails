@@ -1,0 +1,19 @@
+<table style="float: left; top-margin: 10px">
+	<tr>
+		<th>Menu</th>
+	</tr>
+	<tr>
+		<td>
+			<div style="float: left; width: 175px">
+				<%= link_to "View Progress", {:action => "show_progress", controller => "student"} %></br>
+				<%= link_to "View Total Time", {:action => "time", controller => "student"} %></br>
+				<%= link_to "Schedule a Meeting", {:action => "create_meeting", controller => "student"} %></br>
+				<%= link_to "Schedule a Task", {:action => "create_request", controller => "student"} %></br>
+				<%= link_to "View Tasks", {:action => "show_tasks", controller => "student"} %></br>
+				<%= link_to "Log out", logout_path, method: :delete %></br>
+				<%= link_to "Reset Password", {:action => "reset", controller => "users"} %>
+			</div>
+		</td>
+	</tr>
+</table>
+
